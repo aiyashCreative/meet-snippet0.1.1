@@ -1,0 +1,61 @@
+<style>
+    .configuration-position {
+        position: absolute;
+        top: 22vh;
+        left: 13px;
+    }
+
+    #configuration-cover {
+        position: fixed;
+        top: 0;
+        left: 0;
+        background: #ffffff91;
+        z-index: 5;
+        width: 100%;
+        height: 100%;
+        display: none;
+        backdrop-filter: blur(10px);
+    }
+
+    #configuration {
+        z-index: 6;
+    }
+
+    .mouse {
+        margin-top: 27px
+    }
+</style>
+<button id="rejoin" onclick="mouse.hide()">Rejoin</button>
+<div id="configuration-cover"></div>
+<div id="configuration" class="configuration-position">
+    <div id="join-screen">
+        <button id="joinBtn" onclick="meetingObj.joinMeeting()">Join Meeting</button>
+    </div>
+
+    <!-- for Managing meeting status -->
+    <div id="textDiv"></div>
+
+    <div id="grid-screen" style="display: none">
+        <div
+            id="controls">
+            <!-- To Display MeetingId -->
+            <h3 id="meetingIdHeading"></h3>
+
+            <!-- Controllers -->
+            <button id="leaveBtn" onclick="meetingObj.leaveMeeting()">Leave</button>
+            <button id="toggleMicBtn" onclick="meetingObj.toggle.mic()">
+                Toggle Mic
+            </button>
+            <button id="toggleWebCamBtn" onclick="meetingObj.toggle.webCam()">
+                Toggle WebCam
+            </button>
+            <button onclick="mouse.show()">Show cursor</button>
+        </div>
+        <!-- render Video -->
+        <div class="row">
+            <div class="container-fluid">
+                <div id="videoContainer"></div>
+            </div>
+        </div>
+    </div>
+</div>
